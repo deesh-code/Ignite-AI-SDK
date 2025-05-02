@@ -6,12 +6,12 @@ A collection of example applications showcasing different use cases and features
 
 ### Chat Applications
 
-#### [chat-openai](/chat-openai)
+#### [chat-openai](https://github.com/ActionpackdHQ/Ignite-AI-SDK/tree/main/examples/chat-openai)
 A simple chat interface using OpenAI's GPT models.
 - **Stack**: Next.js, TypeScript, TailwindCSS
 - **Difficulty**: Beginner
 - **Features**: Chat, Streaming
-- **Source**: [/chat-openai](/chat-openai)
+- **Source**: [github.com/ActionpackdHQ/Ignite-AI-SDK/tree/main/examples/chat-openai](https://github.com/ActionpackdHQ/Ignite-AI-SDK/tree/main/examples/chat-openai)
 - **Deploy**: Vercel, Netlify
 
 ### Basic RAG
@@ -20,7 +20,7 @@ Basic RAG implementation with vector similarity search.
 - **Stack**: Next.js, TypeScript
 - **Difficulty**: Intermediate
 - **Features**: RAG, Vector Search
-- **Source**: [/rag-basic](/rag-basic)
+- **Source**: [github.com/ActionpackdHQ/Ignite-AI-SDK/tree/main/examples/rag-basic](https://github.com/ActionpackdHQ/Ignite-AI-SDK/tree/main/examples/rag-basic)
 - **Deploy**: Vercel
 
 ### Basic Agent
@@ -29,7 +29,7 @@ Simple agent implementation with tool usage and step-by-step thinking.
 - **Stack**: Next.js, TypeScript
 - **Difficulty**: Intermediate
 - **Features**: Agent, Tools
-- **Source**: [/agent-basic](/agent-basic)
+- **Source**: [github.com/ActionpackdHQ/Ignite-AI-SDK/tree/main/examples/agent-basic](https://github.com/ActionpackdHQ/Ignite-AI-SDK/tree/main/examples/agent-basic)
 - **Deploy**: Vercel
 
 ### Examples Landing
@@ -38,7 +38,7 @@ Showcase landing page listing all AI SDK examples with UI cards and deploy optio
 - **Stack**: Next.js, TypeScript, TailwindCSS
 - **Difficulty**: Beginner
 - **Features**: UI, Showcase
-- **Source**: [/landing](/landing)
+- **Source**: [github.com/ActionpackdHQ/Ignite-AI-SDK/tree/main/examples/landing](https://github.com/ActionpackdHQ/Ignite-AI-SDK/tree/main/examples/landing)
 - **Deploy**: Vercel, Netlify
 
 ## Getting Started
@@ -53,8 +53,8 @@ Showcase landing page listing all AI SDK examples with UI cards and deploy optio
 
 1. Clone the repository
 ```bash
-git clone https://github.com/actionpackd/ignite-ai-sdk.git
-cd ignite-ai-sdk
+git clone https://github.com/ActionpackdHQ/Ignite-AI-SDK.git
+cd Ignite-AI-SDK
 ```
 
 2. Install root dependencies
@@ -217,4 +217,4 @@ Make sure to set these environment variables in your deployment platform:
 
 ## Contributing
 
-We welcome contributions! Please see our [contributing guide](../CONTRIBUTING.md) for details.
+We welcome contributions! Please see our [contributing guide](https://github.com/ActionpackdHQ/Ignite-AI-SDK/blob/main/CONTRIBUTING.md) for details.
