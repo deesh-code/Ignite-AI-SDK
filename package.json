@@ -1,6 +1,6 @@
 {
   "name": "@actionpackd/ignite-ai-sdk",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A modular, streaming-first, adapter-based interface layer for fullstack AI applications",
   "type": "module",
   "main": "dist/index.js",
