@@ -274,30 +274,3 @@ The project welcomes contributions in several areas:
 3. Performance improvements
 4. Documentation enhancements
 5. Bug fixes and testing
-
-## Future Roadmap
-
-1. **Short Term**
-   - Additional provider adapters
-   - More example applications
-   - Enhanced documentation
-   - CLI tool improvements
-
-2. **Medium Term**
-   - Advanced RAG features
-   - Function calling support
-   - Multi-modal capabilities
-   - Performance optimizations
-
-3. **Long Term**
-   - Custom model fine-tuning
-   - Enterprise features
-   - Advanced monitoring
-   - Community templates
-
-## Resources
-
-- [GitHub Repository](https://github.com/actionpackdhq/ignite-ai-sdk)
-- [Documentation](https://docs.actionpackd.com/ignite-ai-sdk)
-- [Example Applications](https://github.com/actionpackd/ignite-ai-sdk/tree/main/examples)
-- [Contributing Guide](CONTRIBUTING.md)
