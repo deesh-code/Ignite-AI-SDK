@@ -31,7 +31,7 @@ export default async function ExamplesPage() {
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
-            @actionpackd/ai-sdk Examples
+            @actionpackd/ignite-ai-sdk Examples
           </h1>
           <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
             Explore our collection of example applications showcasing different features and use cases.

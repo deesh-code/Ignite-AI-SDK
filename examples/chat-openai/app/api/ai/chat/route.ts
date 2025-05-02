@@ -1,4 +1,4 @@
-import { createClient, openaiAdapter, definePrompt } from '@actionpackd/ai-sdk';
+import { createClient, openaiAdapter, definePrompt, type StreamChunk } from '@actionpackd/ignite-ai-sdk';
 import { z } from 'zod';
 import type { Message } from '../../../../lib/types';
 
@@ -14,7 +14,7 @@ const chatPrompt = definePrompt({
   output: z.object({
     reply: z.string(),
   }),
-  template: ({ messages }) => {
+  template: ({ messages }: { messages: Array<{ role: 'user' | 'assistant'; content: string }> }) => {
     return messages
       .map(({ role, content }) => `${role}: ${content}`)
       .join('\n') + '\nassistant:';
@@ -26,10 +26,10 @@ const ai = createClient({
     apiKey: process.env.OPENAI_API_KEY!,
     model: 'gpt-3.5-turbo',
   }),
-  onToken: (token) => {
+  onToken: (token: string) => {
     console.log('[Token]', token);
   },
-  onFinish: (result) => {
+  onFinish: (result: string) => {
     console.log('[Done]', result);
   },
 });

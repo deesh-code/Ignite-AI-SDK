@@ -1,4 +1,4 @@
-import { StreamChunk } from '@actionpackd/ai-sdk';
+import { StreamChunk } from '@actionpackd/ignite-ai-sdk';
 import { runAgent } from '../../../lib/agent';
 
 export const runtime = 'edge';

@@ -1,5 +1,5 @@
 {
-  "name": "@actionpackd/ai-sdk-examples",
+  "name": "@actionpackd/ignite-ai-sdk-examples",
   "private": true,
   "workspaces": [
     "chat-openai",

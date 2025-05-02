@@ -1,4 +1,4 @@
-import { createClient, openaiAdapter } from '@actionpackd/ai-sdk';
+import { createClient, openaiAdapter } from '@actionpackd/ignite-ai-sdk';
 import { embed } from '../../../lib/embed';
 import { VectorStore } from '../../../lib/recall';
 import { ragPrompt } from '../../../lib/prompts';

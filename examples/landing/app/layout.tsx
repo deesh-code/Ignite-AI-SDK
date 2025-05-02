@@ -6,8 +6,8 @@ import React from 'react';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: '@actionpackd/ai-sdk Examples',
-  description: 'Example applications showcasing different features of the @actionpackd/ai-sdk',
+  title: '@actionpackd/ignite-ai-sdk Examples',
+  description: 'Example applications showcasing different features of the @actionpackd/ignite-ai-sdk',
 };
 
 export default function RootLayout({

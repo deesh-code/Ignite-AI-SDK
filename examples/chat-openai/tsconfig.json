@@ -20,8 +20,8 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@actionpackd/ai-sdk": ["../../src"],
-      "@actionpackd/ai-sdk/*": ["../../src/*"]
+      "@actionpackd/ignite-ai-sdk": ["../../src"],
+      "@actionpackd/ignite-ai-sdk/*": ["../../src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

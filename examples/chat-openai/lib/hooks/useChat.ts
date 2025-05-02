@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import type { Message } from '../types';
-import { StreamChunk } from '@actionpackd/ai-sdk';
+import { StreamChunk } from '@actionpackd/ignite-ai-sdk';
 
 export function useChat() {
   const [messages, setMessages] = useState<Message[]>([]);

@@ -1,4 +1,4 @@
-import { createClient, openaiAdapter } from '@actionpackd/ai-sdk';
+import { createClient, openaiAdapter } from '@actionpackd/ignite-ai-sdk';
 import { agentPrompt } from './prompts';
 import type { AgentStep, Tool } from './types';
 

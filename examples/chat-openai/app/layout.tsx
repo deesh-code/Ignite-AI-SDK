@@ -1,8 +1,8 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Chat OpenAI Example - @actionpackd/ai-sdk',
-  description: 'A streaming chat example using @actionpackd/ai-sdk with OpenAI',
+  title: 'Chat OpenAI Example - @actionpackd/ignite-ai-sdk',
+  description: 'A streaming chat example using @actionpackd/ignite-ai-sdk with OpenAI',
 };
 
 import { ReactNode } from 'react';
