@@ -1,0 +1,32 @@
+{
+  "name": "@actionpackd/ignite-ai-sdk",
+  "version": "0.1.0",
+  "description": "A modular, streaming-first, adapter-based interface layer for fullstack AI applications",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ActionpackdHQ/Ignite-AI-SDK.git"
+  },
+  "homepage": "https://github.com/ActionpackdHQ/Ignite-AI-SDK#readme",
+  "bugs": {
+    "url": "https://github.com/ActionpackdHQ/Ignite-AI-SDK/issues"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "eventsource-parser": "^1.0.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.0",
+    "typescript": "^5.2.2"
+  },
+  "keywords": ["ai", "sdk", "openai", "streaming", "typescript"],
+  "author": "Actionpackd",
+  "license": "MIT"
+}

@@ -1,0 +1,55 @@
+{
+  "examples": [
+    {
+      "id": "chat-openai",
+      "name": "OpenAI Chat",
+      "description": "Simple chat interface using OpenAI's GPT models with streaming responses.",
+      "tags": ["Chat", "Streaming"],
+      "stack": ["Next.js", "TypeScript", "TailwindCSS"],
+      "difficulty": "Beginner",
+      "source": "/chat-openai",
+
+      "deploy": {
+        "vercel": true,
+        "netlify": true
+      }
+    },
+    {
+      "id": "rag-basic",
+      "name": "Basic RAG",
+      "description": "Basic RAG implementation with vector similarity search.",
+      "tags": ["RAG", "Vector Search"],
+      "stack": ["Next.js", "TypeScript"],
+      "difficulty": "Intermediate",
+      "source": "/rag-basic",
+      "deploy": {
+        "vercel": true
+      }
+    },
+    {
+      "id": "agent-basic",
+      "name": "Basic Agent",
+      "description": "Simple agent implementation with tool usage and step-by-step thinking.",
+      "tags": ["Agent", "Tools"],
+      "stack": ["Next.js", "TypeScript"],
+      "difficulty": "Intermediate",
+      "source": "/agent-basic",
+      "deploy": {
+        "vercel": true
+      }
+    },
+    {
+      "id": "landing",
+      "name": "Examples Landing",
+      "description": "Showcase landing page listing all AI SDK examples with UI cards and deploy options.",
+      "tags": ["UI", "Showcase"],
+      "stack": ["Next.js", "TypeScript", "TailwindCSS"],
+      "difficulty": "Beginner",
+      "source": "/landing",
+      "deploy": {
+        "vercel": true,
+        "netlify": true
+      }
+    }
+  ]
+}
