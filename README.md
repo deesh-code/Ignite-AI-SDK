@@ -4,13 +4,13 @@ A modular, streaming-first, adapter-based interface layer for fullstack AI appli
 
 ## Features
 
-- 🎯 Typed prompts with Zod schemas
-- 🌊 Streaming-first architecture
-- 🔌 Pluggable adapters (OpenAI supported)
-- 🎣 Developer hooks for observability
-- 📐 Framework-agnostic
-- 🔒 Type-safe APIs
-- 🌐 Edge-compatible
+-  Typed prompts with Zod schemas
+-  Streaming-first architecture
+-  Pluggable adapters (OpenAI supported)
+-  Developer hooks for observability
+-  Framework-agnostic
+-  Type-safe APIs
+-  Edge-compatible
 
 ## Installation
 
@@ -91,6 +91,10 @@ const adapter = openaiAdapter({
   temperature?: number  // default: 0.7
 });
 ```
+
+## Contributing
+
+We welcome contributions! Please see our [contributing guide](CONTRIBUTING.md) for details on how to get started.
 
 ## License
 

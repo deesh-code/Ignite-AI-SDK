@@ -86,11 +86,11 @@ const ai = createClient({
 
 This example is ready to be deployed on Vercel:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/ActionpackdHQ/ai-sdk/tree/main/examples/chat-openai)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/ActionpackdHQ/Ignite-AI-SDK/tree/main/examples/chat-openai)
 
 ## Learn More
 
-- [@actionpackd/ignite-ai-sdk Documentation](https://github.com/actionpackd/ignite-ai-sdk)
+- [@actionpackd/ignite-ai-sdk Documentation](https://github.com/ActionpackdHQ/Ignite-AI-SDK)
 - [Next.js Documentation](https://nextjs.org/docs)
 - [OpenAI API Reference](https://platform.openai.com/docs/api-reference)
 

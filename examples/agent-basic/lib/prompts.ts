@@ -1,4 +1,4 @@
-import { definePrompt } from '@actionpackd/ai-sdk';
+import { definePrompt } from '@actionpackd/ignite-ai-sdk';
 import { z } from 'zod';
 import type { AgentStep } from './types';
 
