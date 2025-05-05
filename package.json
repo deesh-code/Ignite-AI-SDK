@@ -1,10 +1,16 @@
 {
   "name": "@actionpackd/ignite-ai-sdk",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "A modular, streaming-first, adapter-based interface layer for fullstack AI applications",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js"
+    }
+  },
   "scripts": {
     "build": "tsc",
     "test": "jest"
@@ -28,5 +34,6 @@
   },
   "keywords": ["ai", "sdk", "openai", "streaming", "typescript"],
   "author": "Actionpackd",
-  "license": "MIT"
+  "license": "MIT",
+  "files": ["dist/**/*", "src/**/*"]
 }
