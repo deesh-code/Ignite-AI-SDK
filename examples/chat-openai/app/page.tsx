@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from 'react';
 import { useChat } from '../lib/hooks/useChat';
+import { ActionpackdFooter } from './components/ActionpackdFooter';
 
 export default function ChatPage() {
   const { messages, isLoading, error, sendMessage } = useChat();
@@ -17,68 +18,81 @@ export default function ChatPage() {
   };
 
   return (
-    <main className="container mx-auto max-w-4xl p-4 flex flex-col h-screen">
-      <header className="py-4 border-b">
-        <h1 className="text-2xl font-bold">Chat with AI</h1>
-      </header>
+    <div className="min-h-screen flex flex-col bg-white">
+      <main className="container mx-auto max-w-4xl px-4 py-8 mb-16">
+        <div className="card overflow-hidden">
+          <header className="px-6 py-4 bg-white border-b">
+            <h1 className="section-title text-center">Chat with AI</h1>
+            <p className="text-sm text-gray-500 mt-1 text-center">Powered by OpenAI GPT</p>
+          </header>
 
-      <div className="flex-1 overflow-auto py-4 space-y-4">
-        {messages.map((message, i) => (
-          <div
-            key={i}
-            className={`flex ${
-              message.role === 'user' ? 'justify-end' : 'justify-start'
-            }`}
-          >
-            <div
-              className={`max-w-[80%] rounded-lg px-4 py-2 ${
-                message.role === 'user'
-                  ? 'bg-blue-500 text-white'
-                  : 'bg-gray-100'
-              }`}
-            >
-              <div className="text-sm font-semibold mb-1">
-                {message.role === 'user' ? 'You' : 'AI'}
+          <div className="flex-1 h-[60vh] overflow-auto p-6 space-y-4">
+            {messages.map((message, i) => (
+              <div
+                key={i}
+                className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
+              >
+                <div
+                  className={`max-w-[80%] rounded-2xl px-6 py-3 ${message.role === 'user'
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-gray-100 text-gray-900'}`}
+                >
+                  <div className="text-xs font-medium mb-1 opacity-75">
+                    {message.role === 'user' ? 'You' : 'AI Assistant'}
+                  </div>
+                  <div className="whitespace-pre-wrap text-sm leading-relaxed">
+                    {message.content}
+                  </div>
+                </div>
               </div>
-              <div className="whitespace-pre-wrap">{message.content}</div>
-            </div>
+            ))}
+            {isLoading && (
+              <div className="flex justify-start">
+                <div className="max-w-[80%] rounded-2xl px-6 py-3 bg-gray-100">
+                  <div className="flex items-center space-x-2">
+                    <div className="animate-pulse flex space-x-1">
+                      <div className="h-2 w-2 bg-gray-400 rounded-full"></div>
+                      <div className="h-2 w-2 bg-gray-400 rounded-full animation-delay-200"></div>
+                      <div className="h-2 w-2 bg-gray-400 rounded-full animation-delay-400"></div>
+                    </div>
+                    <span className="text-sm text-gray-500">AI is typing</span>
+                  </div>
+                </div>
+              </div>
+            )}
+            {error && (
+              <div className="flex justify-center">
+                <div className="bg-red-50 text-red-600 rounded-lg px-4 py-2 text-sm">
+                  {error.message}
+                </div>
+              </div>
+            )}
           </div>
-        ))}
-        {isLoading && (
-          <div className="flex justify-start">
-            <div className="bg-gray-100 rounded-lg px-4 py-2">
-              <div className="animate-pulse">Thinking...</div>
-            </div>
-          </div>
-        )}
-        {error && (
-          <div className="flex justify-center">
-            <div className="bg-red-100 text-red-600 rounded-lg px-4 py-2">
-              {error.message}
-            </div>
-          </div>
-        )}
-      </div>
 
-      <form onSubmit={handleSubmit} className="py-4 border-t">
-        <div className="flex gap-4">
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Type your message..."
-            className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            disabled={isLoading}
-          />
-          <button
-            type="submit"
-            disabled={isLoading}
-            className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            Send
-          </button>
+          <div className="px-6 py-4 bg-gray-50 border-t">
+            <form onSubmit={handleSubmit}>
+              <div className="flex gap-4">
+                <input
+                  type="text"
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  placeholder="Type your message..."
+                  className="input-field flex-1"
+                  disabled={isLoading}
+                />
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="btn-primary"
+                >
+                  Send
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-      </form>
-    </main>
+      </main>
+      <ActionpackdFooter />
+    </div>
   );
 }

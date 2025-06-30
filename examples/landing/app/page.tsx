@@ -1,6 +1,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import React from 'react';
+import { ActionpackdFooter } from './components/ActionpackdFooter';
 
 interface Example {
   id: string;
@@ -27,11 +28,11 @@ export default async function ExamplesPage() {
   const { examples } = JSON.parse(manifestContent) as Manifest;
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex flex-col bg-white">
+      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 flex-grow">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
-            @actionpackd/ignite-ai-sdk Examples
+          <h1 className="section-title sm:text-5xl">
+            Actionpackd Ignite AI SDK Examples
           </h1>
           <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
             Explore our collection of example applications showcasing different features and use cases.
@@ -42,7 +43,7 @@ export default async function ExamplesPage() {
           {examples.map((example) => (
             <div
               key={example.id}
-              className="relative group bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-200"
+              className="card relative group hover:shadow-lg transition-all duration-200 hover:scale-[1.02]"
             >
               <div className="p-6">
                 <div className="flex items-center justify-between">
@@ -88,8 +89,8 @@ export default async function ExamplesPage() {
 
                 <div className="mt-6 flex items-center gap-4">
                   <a
-                    href={`https://github.com/ActionpackdHQ/ai-sdk/tree/main/examples${example.source}`}
-                    className="text-sm font-medium text-gray-900 hover:text-gray-700"
+                    href={`https://github.com/ActionpackdHQ/Ignite-AI-SDK/tree/main/examples${example.source}`}
+                    className="text-sm font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -98,7 +99,7 @@ export default async function ExamplesPage() {
                   {example.demo && (
                     <a
                       href={example.demo}
-                      className="text-sm font-medium text-blue-600 hover:text-blue-500"
+                      className="text-sm font-medium text-blue-600 hover:text-blue-700 flex items-center gap-1"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -111,7 +112,7 @@ export default async function ExamplesPage() {
                   <div className="mt-6 flex items-center gap-4">
                     {example.deploy.vercel && (
                       <a
-                        href={`https://vercel.com/new/clone?repository-url=https://github.com/ActionpackdHQ/ai-sdk/tree/main/examples${example.source}`}
+                        href={`https://vercel.com/new/clone?repository-url=https://github.com/ActionpackdHQ/Ignite-AI-SDK/tree/main/examples${example.source}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -120,7 +121,7 @@ export default async function ExamplesPage() {
                     )}
                     {example.deploy.netlify && (
                       <a
-                        href={`https://app.netlify.com/start/deploy?repository=https://github.com/ActionpackdHQ/ai-sdk/tree/main/examples${example.source}`}
+                        href={`https://app.netlify.com/start/deploy?repository=https://github.com/ActionpackdHQ/Ignite-AI-SDK/tree/main/examples${example.source}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -134,6 +135,7 @@ export default async function ExamplesPage() {
           ))}
         </div>
       </div>
+      <ActionpackdFooter />
     </div>
   );
 }
