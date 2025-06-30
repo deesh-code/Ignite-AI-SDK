@@ -21,23 +21,42 @@ const chatPrompt = definePrompt({
   },
 });
 
-const ai = createClient({
-  adapter: openaiAdapter({
-    apiKey: process.env.OPENAI_API_KEY!,
-    model: 'gpt-3.5-turbo',
-  }),
-  onToken: (token: string) => {
-    console.log('[Token]', token);
-  },
-  onFinish: (result: string) => {
-    console.log('[Done]', result);
-  },
-});
+// Initialize AI client only if API key is available
+let ai: ReturnType<typeof createClient> | null = null;
+
+if (process.env.OPENAI_API_KEY) {
+  ai = createClient({
+    adapter: openaiAdapter({
+      apiKey: process.env.OPENAI_API_KEY,
+      model: 'gpt-3.5-turbo',
+    }),
+    onToken: (token: string) => {
+      console.log('[Token]', token);
+    },
+    onFinish: (result: string) => {
+      console.log('[Done]', result);
+    },
+  });
+}
 
 export async function POST(req: Request) {
   const { messages } = await req.json() as { messages: Message[] };
 
   try {
+    // Check if API key is configured
+    if (!process.env.OPENAI_API_KEY || !ai) {
+      return new Response(
+        JSON.stringify({ 
+          error: 'OpenAI API key not configured. Please add OPENAI_API_KEY to your environment variables.'
+        }),
+        { 
+          status: 400,
+          headers: {
+            'Content-Type': 'application/json'
+          } 
+        }
+      );
+    }
     const stream = await ai.stream(chatPrompt, { messages });
 
     return new Response(

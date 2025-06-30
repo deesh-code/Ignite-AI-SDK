@@ -15,6 +15,8 @@ export default function AgentPage() {
 
     setIsLoading(true);
     setError(null);
+    setResponse('');
+    
     try {
       const res = await fetch('/api/ai/agent', {
         method: 'POST',
@@ -25,11 +27,47 @@ export default function AgentPage() {
       });
 
       if (!res.ok) {
-        throw new Error('Failed to get response');
+        // Check if the response is JSON
+        const contentType = res.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+          const errorData = await res.json();
+          throw new Error(errorData.error || 'Failed to get response');
+        } else {
+          throw new Error('Failed to get response');
+        }
       }
 
-      const data = await res.json();
-      setResponse(data.response);
+      // Handle streaming response
+      const reader = res.body?.getReader();
+      const decoder = new TextDecoder();
+      
+      if (!reader) {
+        throw new Error('Failed to read response');
+      }
+      
+      while (true) {
+        const { done, value } = await reader.read();
+        
+        if (done) {
+          break;
+        }
+        
+        const text = decoder.decode(value);
+        const lines = text.split('\n\n');
+        
+        for (const line of lines) {
+          if (line.startsWith('data: ')) {
+            try {
+              const data = JSON.parse(line.slice(6));
+              if (data.text) {
+                setResponse(prev => prev + data.text);
+              }
+            } catch (e) {
+              console.error('Error parsing SSE data', e);
+            }
+          }
+        }
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {

@@ -1,15 +1,15 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import './globals.css';
 
 export const metadata = {
-  title: 'Chat OpenAI - Actionpackd AI SDK',
-  description: 'A streaming chat example using Actionpackd Ignite AI SDK with OpenAI',
-};
+  title: 'AI Agent - Actionpackd AI SDK',
+  description: 'Your intelligent assistant for complex tasks',
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang="en">
@@ -20,5 +20,5 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased">{children}</body>
     </html>
-  );
+  )
 }

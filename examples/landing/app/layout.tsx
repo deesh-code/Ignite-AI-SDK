@@ -1,13 +1,10 @@
+import React from 'react';
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import React from 'react';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: '@actionpackd/ignite-ai-sdk Examples',
-  description: 'Example applications showcasing different features of the @actionpackd/ignite-ai-sdk',
+  title: 'Actionpackd Ignite AI SDK Examples',
+  description: 'Example applications showcasing different features of the Actionpackd Ignite AI SDK',
 };
 
 export default function RootLayout({
@@ -17,7 +14,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+      </head>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }

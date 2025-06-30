@@ -1,15 +1,15 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import './globals.css';
 
 export const metadata = {
-  title: 'Chat OpenAI - Actionpackd AI SDK',
-  description: 'A streaming chat example using Actionpackd Ignite AI SDK with OpenAI',
+  title: 'RAG Assistant - Actionpackd AI SDK',
+  description: 'Ask questions about your documents using AI-powered retrieval',
 };
 
 export default function RootLayout({
   children,
 }: {
-  children: ReactNode;
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
