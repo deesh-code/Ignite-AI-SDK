@@ -8,15 +8,19 @@ export default function RagPage() {
   const [answer, setAnswer] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isStreaming, setIsStreaming] = useState(false);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!query.trim() || isLoading) return;
 
     setIsLoading(true);
+    setIsStreaming(true);
     setError(null);
+    setAnswer('');
+    
     try {
-      const res = await fetch('/api/ai/rag', {
+      const res = await fetch('/api/ai', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -25,15 +29,56 @@ export default function RagPage() {
       });
 
       if (!res.ok) {
-        throw new Error('Failed to get response');
+        // Check if the response is JSON
+        const contentType = res.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+          const errorData = await res.json();
+          throw new Error(errorData.error || 'Failed to get response');
+        } else {
+          throw new Error('Failed to get response');
+        }
       }
 
-      const data = await res.json();
-      setAnswer(data.answer);
+      // Handle streaming response
+      const reader = res.body?.getReader();
+      const decoder = new TextDecoder();
+      
+      if (!reader) {
+        throw new Error('Response body is null');
+      }
+      
+      let accumulatedAnswer = '';
+      
+      while (true) {
+        const { done, value } = await reader.read();
+        
+        if (done) {
+          break;
+        }
+        
+        // Decode the chunk and split by lines
+        const chunk = decoder.decode(value, { stream: true });
+        const lines = chunk.split('\n\n');
+        
+        for (const line of lines) {
+          if (line.startsWith('data: ')) {
+            try {
+              const data = JSON.parse(line.substring(6));
+              if (data.text) {
+                accumulatedAnswer += data.text;
+                setAnswer(accumulatedAnswer);
+              }
+            } catch (e) {
+              // Skip invalid JSON
+            }
+          }
+        }
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
       setIsLoading(false);
+      setIsStreaming(false);
     }
   };
 

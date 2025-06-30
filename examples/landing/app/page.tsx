@@ -23,9 +23,50 @@ interface Manifest {
 }
 
 export default async function ExamplesPage() {
-  const manifestPath = path.join(process.cwd(), '..', 'manifest.json');
-  const manifestContent = await fs.readFile(manifestPath, 'utf8');
-  const { examples } = JSON.parse(manifestContent) as Manifest;
+  // Default examples in case manifest.json is not available
+  let examples: Example[] = [
+    {
+      id: 'chat-openai',
+      name: 'Chat with OpenAI',
+      description: 'A simple chat interface using OpenAI API',
+      tags: ['Chat', 'AI', 'OpenAI'],
+      stack: ['Next.js', 'React', 'Tailwind CSS'],
+      difficulty: 'Beginner',
+      source: '/chat-openai',
+      deploy: { vercel: true }
+    },
+    {
+      id: 'rag-basic',
+      name: 'RAG Basic',
+      description: 'Retrieval-Augmented Generation with vector search',
+      tags: ['RAG', 'AI', 'Vector Search'],
+      stack: ['Next.js', 'React', 'Tailwind CSS'],
+      difficulty: 'Intermediate',
+      source: '/rag-basic',
+      deploy: { vercel: true }
+    },
+    {
+      id: 'agent-basic',
+      name: 'AI Agent',
+      description: 'Basic AI agent with tool-use capabilities',
+      tags: ['Agent', 'AI', 'Tools'],
+      stack: ['Next.js', 'React', 'Tailwind CSS'],
+      difficulty: 'Intermediate',
+      source: '/agent-basic',
+      deploy: { vercel: true }
+    }
+  ];
+  
+  try {
+    // Try to load examples from manifest.json if available
+    const manifestPath = path.join(process.cwd(), '..', 'manifest.json');
+    const manifestContent = await fs.readFile(manifestPath, 'utf8');
+    const manifestData = JSON.parse(manifestContent) as Manifest;
+    examples = manifestData.examples;
+  } catch (error) {
+    // Use default examples if manifest.json is not available
+    console.log('Using default examples as manifest.json was not found');
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
