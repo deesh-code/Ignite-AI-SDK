@@ -1,5 +1,8 @@
 # @actionpackd/ignite-ai-sdk
 
+> ⚠️ **Deprecated** — This project is no longer maintained.  
+> Please use **Actionpackd AI SDK** instead: https://github.com/actionpackdhq/ai-sdk and https://www.npmjs.com/package/@actionpackd/sdk-core
+
 A modular, streaming-first, adapter-based interface layer for fullstack AI applications.
 
 ## Features
